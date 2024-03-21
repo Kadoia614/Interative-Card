@@ -1,0 +1,138 @@
+body {
+  font-size: 18px;
+  font-weight: 500;
+  min-height: 100vh;
+}
+body .attribution {
+  font-size: 11px;
+  text-align: center;
+}
+body .attribution a {
+  color: hsl(228, 45%, 44%);
+}
+body main #left-grid {
+  background-repeat: no-repeat;
+  position: relative;
+}
+body main #left-grid #Cards .front-card,
+body main #left-grid #Cards .back-card {
+  position: relative;
+  display: inherit;
+}
+body main #left-grid #Cards .front-card .info,
+body main #left-grid #Cards .back-card .info {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  color: white;
+}
+body main #left-grid #Cards .front-card {
+  z-index: 1;
+}
+body main #FormContainer {
+  font-size: 14px;
+  max-width: 485px;
+}
+body main #FormContainer .flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+body main #FormContainer .flipper .form-front {
+  position: relative;
+  z-index: 1;
+  transition: 0.6s;
+  opacity: 1;
+}
+body main #FormContainer .flipper .form-front label {
+  text-transform: uppercase;
+}
+body main #FormContainer .flipper .form-back {
+  position: absolute;
+  z-index: 0;
+  transition: 0.6s;
+  opacity: 0;
+  transform: rotatey(180deg);
+}
+body main #FormContainer .flipper.sucess .form-front {
+  z-index: 0 !important;
+  opacity: 0;
+  transform: rotatey(180deg);
+}
+body main #FormContainer .flipper.sucess .form-back {
+  z-index: 1 !important;
+  opacity: 1;
+  transform: rotatey(360deg);
+}
+body main #FormContainer fieldset:not(:first-child) {
+  margin-top: 1.5rem;
+}
+body main #FormContainer .btn-primary {
+  border-color: hsl(278, 68%, 11%);
+  background-color: hsl(278, 68%, 11%);
+}
+
+@media (min-width: 991px) {
+  body main #left-grid {
+    background-image: url("../images/bg-main-desktop.png");
+    background-size: cover;
+    min-height: 100vh;
+  }
+  body main #left-grid #Cards {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+  }
+  body main #left-grid #Cards .front-card,
+  body main #left-grid #Cards .back-card {
+    font-size: 14px !important;
+  }
+  body main #left-grid #Cards .front-card p,
+  body main #left-grid #Cards .back-card p {
+    margin-bottom: 0.5rem;
+  }
+  body main #left-grid #Cards .front-card > img,
+  body main #left-grid #Cards .back-card > img {
+    max-width: 30vw;
+  }
+  body main #left-grid #Cards .front-card {
+    transform: translateX(-50px);
+  }
+  body main #left-grid #Cards .front-card .logo img {
+    height: 75%;
+  }
+  body main #FormContainer {
+    width: 50%;
+  }
+}
+@media (max-width: 991px) {
+  body #left-grid {
+    background-image: url("../images/bg-main-mobile.png");
+    background-size: cover;
+    min-height: 30vh;
+  }
+  body #left-grid #Cards .front-card {
+    transform: translate(-5%, -50px);
+  }
+  body #left-grid #Cards .back-card {
+    transform: translatex(5%);
+  }
+}
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+  body .front-card > img,
+  body .back-card > img {
+    max-width: 75vw;
+  }
+  body .front-card .logo img {
+    height: 65%;
+  }
+  body .front-card h5 {
+    font-size: calc(1rem + 0.5vw) !important;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

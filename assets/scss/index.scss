@@ -1,0 +1,184 @@
+body {
+    font-size: 18px;
+    font-weight: 500;
+    min-height: 100vh;
+
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+
+        a {
+            color: hsl(228, 45%, 44%);
+        }
+    }
+
+    main {
+        #left-grid {
+            background-repeat: no-repeat;
+            position: relative;
+
+            #Cards {
+
+                .front-card,
+                .back-card {
+                    position: relative;
+                    display: inherit;
+
+                    .info {
+                        width: 100%;
+                        position: absolute;
+                        z-index: 999;
+                        color: white;
+                    }
+                }
+
+                .front-card {
+                    z-index: 1;
+                }
+            }
+
+
+        }
+
+        #FormContainer {
+            font-size: 14px;
+            
+            max-width: 485px;
+
+            .flipper {
+                transition: .6s;
+                transform-style: preserve-3d;
+                perspective: 1000px;
+
+                .form-front {
+                    position: relative;
+                    z-index: 1;
+                    transition: .6s;
+                    opacity: 1;
+                    label{
+                        text-transform: uppercase;
+                    }
+                }
+
+                .form-back {
+                    position: absolute;
+                    z-index: 0;
+                    transition: .6s;
+                    opacity: 0;
+                    transform: rotatey(180deg);
+                }
+            }
+
+            .flipper.sucess {
+                .form-front {
+                    z-index: 0 !important;
+                    opacity: 0;
+                    transform: rotatey(180deg);
+
+                }
+
+                .form-back {
+                    z-index: 1 !important;
+                    opacity: 1;
+                    transform: rotatey(360deg);
+                }
+            }
+
+            fieldset:not(:first-child) {
+                margin-top: 1.5rem;
+            }
+
+            .btn-primary {
+                border-color: hsl(278, 68%, 11%);
+                background-color: hsl(278, 68%, 11%);
+            }
+        }
+    }
+}
+
+@media (min-width: 991px) {
+    body {
+        main {
+            #left-grid {
+                background-image: url("../images/bg-main-desktop.png");
+                background-size: cover;
+                min-height: 100vh;
+
+                #Cards {
+                    position: absolute;
+                    top: 50%;
+                    left: 80%;
+                    transform: translate(-50%, -50%);
+
+                    .front-card,
+                    .back-card {
+                        font-size: 14px !important;
+
+                        p {
+                            margin-bottom: .5rem;
+                        }
+
+                        &>img {
+                            max-width: 30vw;
+                        }
+                    }
+
+                    .front-card {
+                        .logo img {
+                            height: 75%;
+                        }
+
+                        transform: translateX(-50px);
+                    }
+                }
+            }
+
+            #FormContainer {
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    body {
+        #left-grid {
+            background-image: url("../images/bg-main-mobile.png");
+            background-size: cover;
+            min-height: 30vh;
+
+            #Cards {
+                .front-card {
+                    transform: translate(-5%, -50px);
+                }
+
+                .back-card {
+                    transform: translatex(5%);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+
+        .front-card,
+        .back-card {
+            &>img {
+                max-width: 75vw;
+            }
+        }
+
+        .front-card {
+            .logo img {
+                height: 65%;
+            }
+
+            h5 {
+                font-size: calc(1rem + .5vw) !important;
+            }
+        }
+    }
+}
